@@ -30,29 +30,11 @@ say bad stuff in roblox until you get banned or deleted :happyface:
 
 
 
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Checking Game For Fe";
-	Text = "";
-})
 
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Fe Found";
-	Text = "Loading Script Version 3.0.9";
-})
-
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Loading..";
-	Text = "";
-})
-
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Done!";
-	Text = "Loading Script Version 3.0.9";
-})
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Script Has Loaded";
-	Text = "SX FE Script Version 3.0.9 Has Loaded";
+	Text = "SX FE Script Free Version Has Loaded";
 })
 
 game.StarterGui:SetCore("SendNotification", {
