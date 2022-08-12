@@ -21,10 +21,8 @@
                oOO                         OOo         
                    oOO                 OOo             
                        ooo OOO OOO ooo                 
-    if you deobfuscate you cant change the owner name to get the owner commannds
-and im adding a if de obfucated you will be blacklisted and banned form my discord skidsss
-adding the black lister so dont share the script or it will delete your acc by making your
-say bad stuff in roblox until you get banned or deleted :happyface:
+    This Is The Free Version So idc If This Gets Leaked
+    [This IF For Them Skids]
 
 ]]--
 
@@ -895,6 +893,23 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil or table.find(netsleepTargets,target) == nil then return end
         table.remove(netsleepTargets,table.find(netsleepTargets,target))
+    elseif spaceSplit[1] == "force"  or spaceSplit[1] == "useforce"  then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        for i,v in pairs(getChar().Humanoid:GetPlayingAnimationTracks()) do
+            v:Stop()
+        end
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://182393478"
+        local k = getChar().Humanoid:LoadAnimation(anim)
+        k:Play(0)
+        k:AdjustSpeed(0)
+        tool.Handle.CanCollide = false
+        attachTool(tool,CFrame.new(0,-7,-2) * CFrame.Angles(math.rad(-90),0,0))
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
     elseif spaceSplit[1] == "rejoin" or spaceSplit[1] == "rj" then
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, plr)
     elseif spaceSplit[1] == "cmds" or spaceSplit[1] == "commands" then
@@ -954,7 +969,6 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    void [target]
         |    hold [target]
         |    unhold
-        |    longhold [target]
         |    backpack [target]
         |    unbackpack
         |    hostage [target]
