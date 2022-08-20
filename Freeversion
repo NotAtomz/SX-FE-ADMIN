@@ -475,14 +475,19 @@ local cc;cc = plr.Chatted:Connect(function(msg)
     local spaceSplit = msg:split(" ")
     if spaceSplit[1] == "bring" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
+        local old = getChar().HumanoidRootPart.CFrame
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
-        local attWeld = attachTool(tool,CFrame.new(0,0,0))
+        local attWeld = attachTool(tool,CFrame.new(-1,-2,0))
+        getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         tool.AncestryChanged:Wait()
         wait(.25)
+        getChar().HumanoidRootPart.CFrame = old
+        wait(.25)
         attWeld:Destroy()
+        
     elseif spaceSplit[1] == "btools" or spaceSplit[1] == "f3x"  then
         loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
     
@@ -717,11 +722,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart
     elseif spaceSplit[1] == "respawn" or spaceSplit[1] == "re" then
         local c = getChar()
-        plr.Character = nil
-        plr.Character = c
-        wait(players.RespawnTime - .1)
         local old = c.HumanoidRootPart.CFrame
-        c.Humanoid.Health = 0
+        c.Humanoid.Health = -1000
         plr.CharacterAdded:Wait()
         getChar():WaitForChild("HumanoidRootPart").CFrame = old
         
